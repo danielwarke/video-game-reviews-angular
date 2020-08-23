@@ -8,3 +8,16 @@ body {
     font-family: Roboto, "Helvetica Neue", sans-serif;
     background-color: #f1f1f1;
 }
+
+.spacer {
+    flex: 1 1 auto;
+}
+
+.center {
+    margin: 0 auto;
+}
+
+h1 {
+    font-size: 3.75em !important;
+    margin-bottom: 0.35em !important;
+}

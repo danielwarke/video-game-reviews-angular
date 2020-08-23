@@ -10,10 +10,13 @@ export class VideoGamesService {
 
     private videoGames: any[];
 
-    fetchVideoGames(): void {
-        this.dataService.get('/video-games', false).then(response => {
-            this.videoGames = response.videoGames;
-            this.videoGamesChanged.next(response.videoGames);
+    fetchVideoGames(): Promise<any> {
+        return new Promise((resolve, reject) => {
+            this.dataService.get('/video-games', false).then(response => {
+                this.videoGames = response.videoGames;
+                this.videoGamesChanged.next(response.videoGames);
+                resolve(response);
+            }).catch(err => reject(err));
         });
     }
 

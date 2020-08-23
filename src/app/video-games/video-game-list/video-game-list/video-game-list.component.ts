@@ -11,6 +11,7 @@ import {VideoGamesService} from '../../video-games.service';
 export class VideoGameListComponent implements OnInit, OnDestroy {
     videoGameList: any[];
     private videoGameListSubs: Subscription;
+    loading = false;
 
     constructor(private videoGamesService: VideoGamesService) {
     }
@@ -20,7 +21,12 @@ export class VideoGameListComponent implements OnInit, OnDestroy {
             this.videoGameList = videoGames;
         });
 
-        this.videoGamesService.fetchVideoGames();
+        this.loading = true;
+        this.videoGamesService.fetchVideoGames().then(() => {
+            this.loading = false;
+        }).catch(() => {
+            this.loading = false;
+        });
     }
 
     ngOnDestroy(): void {
