@@ -1,0 +1,13 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 offset-md-1">
+            <h1 class="mt-6 mb-5">Video Games</h1>
+            <mat-spinner class="center" *ngIf="loading"></mat-spinner>
+            <div class="row">
+                <div class="col-xs-12 col-lg-6 mb-4" *ngFor="let videoGame of videoGameList">
+                    <app-video-game [videoGame]="videoGame"></app-video-game>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

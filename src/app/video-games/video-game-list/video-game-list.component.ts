@@ -1,7 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Subscription} from 'rxjs';
 
-import {VideoGamesService} from '../../video-games.service';
+import {VideoGamesService} from '../video-games.service';
 
 @Component({
     selector: 'app-video-game-list',
