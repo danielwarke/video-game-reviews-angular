@@ -4,33 +4,33 @@ import {Subscription} from 'rxjs';
 import {VideoGamesService} from '../video-games.service';
 
 @Component({
-    selector: 'app-video-game-list',
-    templateUrl: './video-game-list.component.html',
-    styleUrls: ['./video-game-list.component.css']
+	selector: 'app-video-game-list',
+	templateUrl: './video-game-list.component.html',
+	styleUrls: ['./video-game-list.component.css']
 })
 export class VideoGameListComponent implements OnInit, OnDestroy {
-    videoGameList: any[];
-    private videoGameListSubs: Subscription;
-    loading = false;
+	videoGameList: any[];
+	private videoGameListSubs: Subscription;
+	loading = false;
 
-    constructor(private videoGamesService: VideoGamesService) {
-    }
+	constructor(private videoGamesService: VideoGamesService) {
+	}
 
-    ngOnInit(): void {
-        this.videoGamesService.videoGamesChanged.subscribe(videoGames => {
-            this.videoGameList = videoGames;
-        });
+	ngOnInit(): void {
+		this.videoGameListSubs = this.videoGamesService.videoGamesChanged.subscribe(videoGames => {
+			this.videoGameList = videoGames;
+		});
 
-        this.loading = true;
-        this.videoGamesService.fetchVideoGames().then(() => {
-            this.loading = false;
-        }).catch(() => {
-            this.loading = false;
-        });
-    }
+		this.loading = true;
+		this.videoGamesService.fetchVideoGames().then(() => {
+			this.loading = false;
+		}).catch(() => {
+			this.loading = false;
+		});
+	}
 
-    ngOnDestroy(): void {
-        this.videoGameListSubs.unsubscribe();
-    }
+	ngOnDestroy(): void {
+		this.videoGameListSubs.unsubscribe();
+	}
 
 }

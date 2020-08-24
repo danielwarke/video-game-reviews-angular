@@ -1,0 +1,8 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 offset-md-1">
+            <mat-spinner class="center" *ngIf="loading"></mat-spinner>
+            <app-review *ngFor="let review of reviewList" [review]="review"></app-review>
+        </div>
+    </div>
+</div>

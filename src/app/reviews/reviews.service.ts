@@ -5,16 +5,16 @@ import {DataService} from '../shared/data.service';
 @Injectable({
 	providedIn: 'root'
 })
-export class VideoGamesService {
-	videoGamesChanged = new Subject<any[]>();
+export class ReviewsService {
+	reviewsChanged = new Subject<any[]>();
 
-	private videoGames: any[];
+	private reviews: any[];
 
-	fetchVideoGames(): Promise<any> {
+	fetchReviews(url = '/reviews', auth = false): Promise<any> {
 		return new Promise((resolve, reject) => {
-			this.dataService.get('/video-games', false).then(response => {
-				this.videoGames = response.videoGames;
-				this.videoGamesChanged.next(response.videoGames);
+			this.dataService.get(url, auth).then(response => {
+				this.reviews = response.reviews;
+				this.reviewsChanged.next(response.reviews);
 				resolve(response);
 			}).catch(err => reject(err));
 		});
