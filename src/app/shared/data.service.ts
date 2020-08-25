@@ -21,6 +21,16 @@ export class DataService {
 		});
 	}
 	
+	put(url, body, auth = false): Promise<any> {
+		return new Promise((resolve, reject) => {
+			this.http.put<any>(`${this.baseUrl}${url}`, body).subscribe(response => {
+				resolve(response);
+			}, err => {
+				reject(err);
+			});
+		});
+	}
+	
 	post(url, body, auth = false): Promise<any> {
 		return new Promise((resolve, reject) => {
 			this.http.post<any>(`${this.baseUrl}${url}`, body).subscribe(response => {

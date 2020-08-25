@@ -17,18 +17,18 @@ export class AlertService {
 		
 		const options = {
 			duration,
-			panelClass: ''
+			panelClass: ['alert']
 		};
 		
 		switch (type) {
 			case 'success':
-				options.panelClass = 'alert-success';
+				options.panelClass.push('alert-success');
 				break;
 			case 'warning':
-				options.panelClass = 'alert-warning';
+				options.panelClass.push('alert-warning');
 				break;
 			case 'error':
-				options.panelClass = 'alert-error';
+				options.panelClass.push('alert-error');
 				break;
 		}
 		

@@ -58,6 +58,10 @@ p {
     width: 100% !important;
 }
 
+.alert {
+    background-color: white;
+}
+
 .alert-error {
     color: #F44336;
 }

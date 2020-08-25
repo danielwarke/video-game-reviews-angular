@@ -31,7 +31,9 @@ export class AuthComponent implements OnInit {
 		const password = form.value.password;
 		
 		if (this.isSignup) {
-		
+			this.signUp(email, username, password, () => {
+				form.reset();
+			});
 		} else {
 			this.login(email, password);
 		}
@@ -73,6 +75,20 @@ export class AuthComponent implements OnInit {
 		this.authService.login(email, password).then(() => {
 			this.router.navigate(['/reviews']);
 			this.loading = false;
+		}).catch(() => {
+			this.loading = false;
+		});
+	}
+	
+	signUp(email: string, username: string, password: string, successCallback) {
+		this.loading = true;
+		
+		this.authService.signUp(email, username, password).then(() => {
+			this.isSignup = false;
+			this.loading = false;
+			if (typeof successCallback === 'function') {
+				successCallback();
+			}
 		}).catch(() => {
 			this.loading = false;
 		});

@@ -14,10 +14,21 @@ export class AuthService {
 	            private errorService: ErrorService) {
 	}
 	
+	signUp(email: string, username: string, password: string) {
+		return new Promise((resolve, reject) => {
+			this.dataService.put('/signup', { email, username, password }).then(response => {
+				this.alertService.show(response.message, 'success');
+				resolve(response);
+			}).catch(err => {
+				this.errorService.handleError(err);
+				reject(err);
+			});
+		});
+	}
+	
 	login(email: string, password: string) {
 		return new Promise((resolve, reject) => {
 			this.dataService.post('/login', { email, password }).then(response => {
-				this.alertService.show(response.data.message, 'success');
 				resolve(response);
 			}).catch(err => {
 				this.errorService.handleError(err);
