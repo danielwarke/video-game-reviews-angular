@@ -5,6 +5,6 @@
     <img mat-card-image [src]="review.videoGame.imageUrl" [alt]="review.videoGame.title">
     <mat-card-content>{{ review.bodyPreview }}</mat-card-content>
     <mat-card-actions>
-        <button class="small">Read More</button>
+        <button class="small" [routerLink]="['/review-details/', review._id]">Read More</button>
     </mat-card-actions>
 </mat-card>

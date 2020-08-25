@@ -1,0 +1,12 @@
+.image {
+    max-width: 100%;
+    margin-bottom: 20px;
+}
+
+.review-title {
+    word-break: break-word;
+}
+
+.review-body {
+    white-space: pre-wrap;
+}

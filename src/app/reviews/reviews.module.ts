@@ -9,11 +9,15 @@ import {SharedModule} from '../shared/shared.module';
 import {HttpClientModule} from '@angular/common/http';
 import {BrowserModule} from '@angular/platform-browser';
 import {ReviewsService} from './reviews.service';
+import { ReviewDetailsComponent } from './review-details/review-details.component';
+import {RouterModule} from '@angular/router';
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
 	declarations: [
 		ReviewListComponent,
-		ReviewComponent
+		ReviewComponent,
+		ReviewDetailsComponent
 	],
 	imports: [
 		CommonModule,
@@ -21,7 +25,9 @@ import {ReviewsService} from './reviews.service';
 		MatCardModule,
 		SharedModule,
 		HttpClientModule,
-		BrowserModule
+		BrowserModule,
+		RouterModule,
+		MatButtonModule
 	],
 	providers: [ReviewsService]
 })

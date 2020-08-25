@@ -19,6 +19,14 @@ export class ReviewsService {
 			}).catch(err => reject(err));
 		});
 	}
+	
+	getReview(reviewId: string): Promise<any> {
+		return new Promise((resolve, reject) => {
+			this.dataService.get('/review/' + reviewId, false).then(response => {
+				resolve(response.review);
+			}).catch(err => reject(err));
+		});
+	}
 
 	constructor(private dataService: DataService) {
 	}

@@ -16,8 +16,6 @@ export class ReviewListComponent implements OnInit, OnDestroy {
 	}
 
 	ngOnInit(): void {
-		console.log('INIT REVIEWS');
-
 		this.reviewListSubs = this.reviewsService.reviewsChanged.subscribe(reviews => {
 			this.reviewList = reviews;
 		});
