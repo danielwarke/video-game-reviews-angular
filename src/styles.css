@@ -19,12 +19,25 @@ body {
 
 h1 {
     font-size: 3.75em !important;
-    margin-bottom: 0.35em !important;
+    line-height: 1.2 !important;
 }
 
+h2 {
+
+}
+
+h4 {
+    font-size: 1.25rem !important;
+    line-height: 1.6 !important;
+}
 
 p {
     font-size: 1rem !important;
+    line-height: 1.5 !important;
+    margin-block-start: 1em !important;
+    margin-block-end: 1em !important;
+    margin-inline-start: 0 !important;
+    margin-inline-end: 0 !important;
 }
 
 .mat-icon {
@@ -34,5 +47,9 @@ p {
 
 .mat-drawer-container {
     background-color: transparent;
-    margin-bottom: 30px;
+    height: 100%;
+}
+
+.mat-drawer-content {
+    padding-bottom: 30px;
 }

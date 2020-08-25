@@ -17,6 +17,12 @@ export class AppComponent {
 			path: '/video-games',
 			label: 'Video Games',
 			icon: 'videogame_asset'
+		},
+		{
+			sectionBreak: true,
+			path: '/about',
+			label: 'About',
+			icon: 'info'
 		}
 	];
 
