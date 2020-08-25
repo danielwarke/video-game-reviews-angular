@@ -93,5 +93,4 @@ export class AuthComponent implements OnInit {
 			this.loading = false;
 		});
 	}
-	
 }

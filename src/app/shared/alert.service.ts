@@ -32,6 +32,6 @@ export class AlertService {
 				break;
 		}
 		
-		this.snackBarRef = this.snackBar.open(message, 'Close', options);
+		this.snackBarRef = this.snackBar.open(message, null, options);
 	}
 }

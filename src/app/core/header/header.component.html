@@ -6,8 +6,11 @@
         <span class="spacer"></span>
         <span>Video Game Reviews</span>
         <span class="spacer"></span>
-        <button mat-button aria-label="Login" [routerLink]="['/auth']">
+        <button *ngIf="!isLoggedIn" mat-button aria-label="Login" [routerLink]="['/auth']">
             <mat-icon>login</mat-icon> Login
+        </button>
+        <button *ngIf="isLoggedIn" mat-button aria-label="Logout" (click)="logoutButtonHandler()">
+            <mat-icon>logout</mat-icon> Logout
         </button>
     </mat-toolbar-row>
 </mat-toolbar>
