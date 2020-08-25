@@ -1,7 +1,7 @@
 <mat-sidenav-container>
     <mat-sidenav [(opened)]="sidenavOpen">
         <mat-nav-list *ngFor="let link of menuLinks" class="menu-link">
-            <hr *ngIf="link.sectionBreak">
+            <mat-divider *ngIf="link.sectionBreak"></mat-divider>
             <a mat-list-item [routerLink]="link.path" (click)="onMenuLinkClicked()">
                 <mat-icon>{{ link.icon }}</mat-icon> {{ link.label }}
             </a>

@@ -11,10 +11,19 @@ export class DataService {
 	constructor(private http: HttpClient) {
 	}
 
-	get(url, auth): Promise<any> {
+	get(url, auth = false): Promise<any> {
 		return new Promise((resolve, reject) => {
 			this.http.get<any>(`${this.baseUrl}${url}`).subscribe(response => {
-				console.log(response);
+				resolve(response);
+			}, err => {
+				reject(err);
+			});
+		});
+	}
+	
+	post(url, body, auth = false): Promise<any> {
+		return new Promise((resolve, reject) => {
+			this.http.post<any>(`${this.baseUrl}${url}`, body).subscribe(response => {
 				resolve(response);
 			}, err => {
 				reject(err);

@@ -13,6 +13,7 @@ import {VideoGamesModule} from './video-games/video-games.module';
 import {SharedModule} from './shared/shared.module';
 import {CoreModule} from './core/core.module';
 import {ReviewsModule} from './reviews/reviews.module';
+import {AuthModule} from './auth/auth.module';
 
 @NgModule({
 	declarations: [
@@ -23,6 +24,7 @@ import {ReviewsModule} from './reviews/reviews.module';
 		AppRoutingModule,
 		VideoGamesModule,
 		ReviewsModule,
+		AuthModule,
 		SharedModule,
 		BrowserAnimationsModule,
 		NgbModule,

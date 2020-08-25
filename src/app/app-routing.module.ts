@@ -4,6 +4,7 @@ import {VideoGameListComponent} from './video-games/video-game-list/video-game-l
 import {ReviewListComponent} from './reviews/review-list/review-list.component';
 import {ReviewDetailsComponent} from './reviews/review-details/review-details.component';
 import {AboutComponent} from './about/about.component';
+import {AuthComponent} from './auth/auth.component';
 
 const routes: Routes = [
 	{
@@ -20,6 +21,10 @@ const routes: Routes = [
 	{
 		path: 'video-games',
 		component: VideoGameListComponent
+	},
+	{
+		path: 'auth',
+		component: AuthComponent
 	},
 	{
 		path: 'about',

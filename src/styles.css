@@ -53,3 +53,19 @@ p {
 .mat-drawer-content {
     padding-bottom: 30px;
 }
+
+.mat-form-field {
+    width: 100% !important;
+}
+
+.alert-error {
+    color: #F44336;
+}
+
+.alert-warning {
+    color: #FF9800;
+}
+
+.alert-success {
+    color: #4CAF50;
+}

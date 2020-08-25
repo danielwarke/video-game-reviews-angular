@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <form (ngSubmit)="onAuthSubmit(authForm)" #authForm="ngForm">
+                <mat-form-field>
+                    <mat-label>Email Address</mat-label>
+                    <input matInput required ngModel id="email" name="email" type="email">
+                </mat-form-field>
+                <mat-form-field *ngIf="isSignup">
+                    <mat-label>Username</mat-label>
+                    <input matInput required ngModel id="username" name="username" type="text">
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Password</mat-label>
+                    <input matInput required ngModel id="password" name="password" type="password">
+                </mat-form-field>
+                <button type="submit" mat-raised-button color="primary" [disabled]="authForm.invalid">
+                    <mat-icon>login</mat-icon>
+                    {{ isSignup ? 'Sign Up' : 'Login' }}
+                </button>
+            </form>
+            <div style="margin-top: 20px;">
+                <button *ngIf="!isSignup" mat-raised-button style="margin-right: 20px;" (click)="forgotPasswordButtonHandler(authForm)">
+                    Forgot Password?
+                </button>
+                <button mat-raised-button (click)="toggleSignup()">
+                    {{ isSignup ? 'Already have an Account?' : 'Don\'t have an Account?' }}
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
