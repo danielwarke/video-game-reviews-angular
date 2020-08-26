@@ -19,7 +19,6 @@ export class ReviewDetailsComponent implements OnInit {
 		this.route.params.subscribe((params: Params) => {
 			this.reviewsService.getReview(params.id).then(review => {
 				this.review = review;
-				console.log(this.review);
 			});
 		});
 	}

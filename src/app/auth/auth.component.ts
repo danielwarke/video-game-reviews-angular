@@ -72,8 +72,13 @@ export class AuthComponent implements OnInit {
 	login(email: string, password: string) {
 		this.loading = true;
 		
-		this.authService.login(email, password).then(() => {
-			this.router.navigate(['/reviews']);
+		this.authService.login(email, password).then(response => {
+			if (response.tempPassword) {
+				this.router.navigate(['/user'], { queryParams: { tempPassword: '1' } });
+			} else {
+				this.router.navigate(['/reviews']);
+			}
+			
 			this.loading = false;
 		}).catch(() => {
 			this.loading = false;

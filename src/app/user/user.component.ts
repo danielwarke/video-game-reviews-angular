@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthService} from '../auth/auth.service';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router, Params} from '@angular/router';
 import {NgForm} from '@angular/forms';
+
 import {AlertService} from '../shared/alert.service';
 
 @Component({
@@ -17,12 +18,19 @@ export class UserComponent implements OnInit {
 	
 	constructor(private authService: AuthService,
 	            private router: Router,
+	            private route: ActivatedRoute,
 	            private alertService: AlertService) {
 	}
 	
 	ngOnInit(): void {
 		this.username = this.authService.username;
 		this.email = this.authService.email;
+		
+		this.route.queryParams.subscribe(params => {
+			if (params.tempPassword === '1') {
+				this.isChangingPassword = true;
+			}
+		});
 	}
 	
 	userReviewsButtonHandler() {
