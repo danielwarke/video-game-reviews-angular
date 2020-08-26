@@ -12,6 +12,7 @@ import {Location} from '@angular/common';
 export class HeaderComponent implements OnInit {
 	@Output() menuClickEvent = new EventEmitter<any>();
 	isLoggedIn = false;
+	username: string;
 
 	constructor(private authService: AuthService,
 	            private router: Router,
@@ -21,6 +22,10 @@ export class HeaderComponent implements OnInit {
 	ngOnInit(): void {
 		this.authService.hasToken.subscribe(hasToken => {
 			this.isLoggedIn = hasToken;
+		});
+		
+		this.authService.usernameChanged.subscribe(username => {
+			this.username = username;
 		});
 		
 		this.authService.checkState();

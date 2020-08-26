@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h1>Account Details</h1>
+            <p>Username: {{ username }}</p>
+            <p>Email Address: {{ email }}</p>
+            <div>
+                <button mat-raised-button (click)="userReviewsButtonHandler()">
+                    My Reviews
+                </button>
+            </div>
+            <div>
+                <button mat-raised-button (click)="isChangingPassword = true;" color="accent">
+                    Change Password
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

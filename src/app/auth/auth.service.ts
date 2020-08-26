@@ -10,10 +10,12 @@ import {ErrorService} from '../shared/error.service';
 })
 export class AuthService {
 	hasToken = new Subject<boolean>();
+	usernameChanged = new Subject<string>();
+	
 	private token: string;
-	private userId: string;
-	private username: string;
-	private email: string;
+	userId: string;
+	username: string;
+	email: string;
 	private isAdmin = false;
 	
 	constructor(private dataService: DataService,
@@ -51,6 +53,8 @@ export class AuthService {
 				this.username = response.username;
 				this.email = response.email;
 				this.isAdmin = response.admin;
+				
+				this.usernameChanged.next(this.username);
 				this.hasToken.next(true);
 				
 				resolve(response);
@@ -75,6 +79,7 @@ export class AuthService {
 		this.email = null;
 		this.isAdmin = false;
 		
+		this.usernameChanged.next(null);
 		this.hasToken.next(false);
 	}
 	
@@ -111,6 +116,7 @@ export class AuthService {
 			this.email = email;
 			this.isAdmin = isAdmin === 'true';
 			
+			this.usernameChanged.next(this.username);
 			this.hasToken.next(true);
 			
 			return true;

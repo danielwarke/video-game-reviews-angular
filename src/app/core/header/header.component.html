@@ -9,6 +9,9 @@
         <button *ngIf="!isLoggedIn" mat-button aria-label="Login" [routerLink]="['/auth']">
             <mat-icon>login</mat-icon> Login
         </button>
+        <button *ngIf="isLoggedIn" mat-button aria-label="User" [routerLink]="['/user']">
+            <mat-icon>account_circle</mat-icon> {{ username }}
+        </button>
         <button *ngIf="isLoggedIn" mat-button aria-label="Logout" (click)="logoutButtonHandler()">
             <mat-icon>logout</mat-icon> Logout
         </button>

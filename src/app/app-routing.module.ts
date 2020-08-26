@@ -5,6 +5,7 @@ import {ReviewListComponent} from './reviews/review-list/review-list.component';
 import {ReviewDetailsComponent} from './reviews/review-details/review-details.component';
 import {AboutComponent} from './about/about.component';
 import {AuthComponent} from './auth/auth.component';
+import {UserComponent} from './user/user.component';
 
 const routes: Routes = [
 	{
@@ -29,6 +30,10 @@ const routes: Routes = [
 	{
 		path: 'about',
 		component: AboutComponent
+	},
+	{
+		path: 'user',
+		component: UserComponent
 	}
 ];
 
