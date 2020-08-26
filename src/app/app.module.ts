@@ -14,6 +14,7 @@ import {SharedModule} from './shared/shared.module';
 import {CoreModule} from './core/core.module';
 import {ReviewsModule} from './reviews/reviews.module';
 import {AuthModule} from './auth/auth.module';
+import {UserModule} from './user/user.module';
 
 @NgModule({
 	declarations: [
@@ -25,6 +26,7 @@ import {AuthModule} from './auth/auth.module';
 		VideoGamesModule,
 		ReviewsModule,
 		AuthModule,
+		UserModule,
 		SharedModule,
 		BrowserAnimationsModule,
 		NgbModule,

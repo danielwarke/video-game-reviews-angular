@@ -63,15 +63,13 @@ p {
 }
 
 .alert-error {
-    background-color: #F44336;
-    color: white;
+    color: #F44336;
 }
 
 .alert-warning {
-    background-color: #FF9800;
-    color: black;
+    color: #FF9800;
 }
 
 .alert-success {
-    background-color: #4CAF50;
+    color: #4CAF50;
 }

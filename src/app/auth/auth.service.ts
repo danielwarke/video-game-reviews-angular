@@ -23,6 +23,10 @@ export class AuthService {
 	            private errorService: ErrorService) {
 	}
 	
+	getToken() {
+		return this.token;
+	}
+	
 	signUp(email: string, username: string, password: string) {
 		return new Promise((resolve, reject) => {
 			this.dataService.put('/signup', { email, username, password }).then(response => {
@@ -86,7 +90,7 @@ export class AuthService {
 	forgotPassword(email: string): Promise<any> {
 		return new Promise((resolve, reject) => {
 			this.dataService.post('/forgot-password', { email }).then(response => {
-				this.alertService.show(response.data.message, 'success');
+				this.alertService.show(response.message, 'success');
 				resolve(response);
 			}).catch(err => {
 				this.errorService.handleError(err);
@@ -124,5 +128,22 @@ export class AuthService {
 			this.logout();
 			return false;
 		}
+	}
+	
+	changePassword(currentPassword, newPassword): Promise<any> {
+		return new Promise((resolve, reject) => {
+			const body = {
+				userId: this.userId,
+				currentPassword,
+				newPassword
+			};
+			
+			this.dataService.put('/change-password', body, true).then(response => {
+				resolve(response);
+			}).catch(err => {
+				this.errorService.handleError(err);
+				reject(err);
+			});
+		});
 	}
 }

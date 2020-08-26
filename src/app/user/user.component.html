@@ -4,16 +4,37 @@
             <h1>Account Details</h1>
             <p>Username: {{ username }}</p>
             <p>Email Address: {{ email }}</p>
-            <div>
-                <button mat-raised-button (click)="userReviewsButtonHandler()">
-                    My Reviews
-                </button>
-            </div>
-            <div>
+            <button mat-raised-button (click)="userReviewsButtonHandler()">
+                My Reviews
+            </button>
+            <div *ngIf="!isChangingPassword" style="margin-top: 15px;">
                 <button mat-raised-button (click)="isChangingPassword = true;" color="accent">
                     Change Password
                 </button>
             </div>
+            <form *ngIf="isChangingPassword"
+                  (ngSubmit)="onChangePasswordSubmit(changePasswordForm)"
+                  #changePasswordForm="ngForm"
+                  style="margin-top: 15px;">
+                <mat-form-field>
+                    <mat-label>Current Password</mat-label>
+                    <input matInput required ngModel id="currentPassword" name="currentPassword" type="password">
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>New Password</mat-label>
+                    <input matInput required ngModel id="newPassword1" name="newPassword1" type="password">
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Confirm New Password</mat-label>
+                    <input matInput required ngModel id="newPassword2" name="newPassword2" type="password">
+                </mat-form-field>
+                <button type="submit" mat-raised-button color="primary" [disabled]="changePasswordForm.invalid" style="margin-right: 15px;">
+                    Submit
+                </button>
+                <button type="button" mat-raised-button color="accent" (click)="isChangingPassword = false;">
+                    Cancel
+                </button>
+            </form>
         </div>
     </div>
 </div>
