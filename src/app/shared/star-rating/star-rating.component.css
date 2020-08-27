@@ -1,0 +1,12 @@
+.star-container {
+    margin-bottom: 15px;
+}
+
+.star {
+    font-size: 2rem;
+    color: #b0c4de;
+}
+
+.filled {
+    color: #FFB400;
+}

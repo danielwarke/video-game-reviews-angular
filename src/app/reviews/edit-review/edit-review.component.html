@@ -15,9 +15,11 @@
                     <mat-label>Title</mat-label>
                     <input matInput required id="title" name="title" type="text" [(ngModel)]="review.title">
                 </mat-form-field>
+                <label class="mat-label">Rating</label>
+                <app-star-rating [rating]="review.rating" (ratingChanged)="updateRating($event)"></app-star-rating>
                 <mat-form-field>
                     <mat-label>Body</mat-label>
-                    <textarea matInput cdkTextareaAutosize required id="body" name="body" [ngModel]="review.body"></textarea>
+                    <textarea matInput cdkTextareaAutosize required id="body" name="body" [(ngModel)]="review.body"></textarea>
                 </mat-form-field>
                 <button type="submit" mat-raised-button color="primary" [disabled]="videoGameForm.invalid" *ngIf="!loading" style="margin-right: 15px;">
                     <mat-icon>save</mat-icon>

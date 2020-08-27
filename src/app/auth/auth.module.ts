@@ -16,6 +16,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatDialogModule} from '@angular/material/dialog';
 import {ForgotPasswordDialogComponent} from './forgot-password-dialog/forgot-password-dialog.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {AuthGuardService} from './auth-guard.service';
 
 @NgModule({
 	declarations: [
@@ -36,7 +37,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 		FormsModule,
 		MatProgressSpinnerModule
 	],
-	providers: [AuthService]
+	providers: [AuthService, AuthGuardService]
 })
 export class AuthModule {
 }

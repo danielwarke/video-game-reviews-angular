@@ -63,6 +63,11 @@ p {
     width: 100% !important;
 }
 
+.mat-label {
+    color: rgba(0, 0, 0, 054);
+    margin-bottom: 10px;
+}
+
 .alert {
     background-color: white;
 }

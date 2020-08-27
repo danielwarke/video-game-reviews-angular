@@ -22,6 +22,7 @@ export class AuthService {
 	}
 	
 	getToken() {
+		this.checkState();
 		return this.token;
 	}
 	

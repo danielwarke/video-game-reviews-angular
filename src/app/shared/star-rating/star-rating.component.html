@@ -1,0 +1,7 @@
+<div class="star-container">
+    <ngb-rating [(rate)]="rating" [readonly]="readonly" [max]="5" (rateChange)="onRateChanged($event)">
+        <ng-template let-fill="fill" let-index="index">
+            <span class="star" [class.filled]="fill === 100">&#9733;</span>
+        </ng-template>
+    </ngb-rating>
+</div>

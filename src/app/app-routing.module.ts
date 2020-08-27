@@ -7,6 +7,7 @@ import {AboutComponent} from './about/about.component';
 import {AuthComponent} from './auth/auth.component';
 import {UserComponent} from './user/user.component';
 import {EditReviewComponent} from './reviews/edit-review/edit-review.component';
+import {AuthGuardService} from './auth/auth-guard.service';
 
 const routes: Routes = [
 	{
@@ -23,7 +24,13 @@ const routes: Routes = [
 	},
 	{
 		path: 'review/:reviewId/edit',
-		component: EditReviewComponent
+		component: EditReviewComponent,
+		canActivate: [AuthGuardService]
+	},
+	{
+		path: 'review/create',
+		component: EditReviewComponent,
+		canActivate: [AuthGuardService]
 	},
 	{
 		path: 'video-games',
@@ -39,7 +46,8 @@ const routes: Routes = [
 	},
 	{
 		path: 'user',
-		component: UserComponent
+		component: UserComponent,
+		canActivate: [AuthGuardService]
 	}
 ];
 

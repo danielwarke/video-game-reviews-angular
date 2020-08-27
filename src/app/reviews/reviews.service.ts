@@ -65,6 +65,8 @@ export class ReviewsService {
 				videoGameId
 			};
 			
+			console.log(updatedReview);
+			
 			this.dataService.put('/review/' + reviewId, updatedReview, true).then(response => {
 				resolve(response);
 			}).catch(err => {

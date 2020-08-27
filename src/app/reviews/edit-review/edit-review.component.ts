@@ -37,7 +37,9 @@ export class EditReviewComponent implements OnInit, OnDestroy {
 					this.loading = false;
 				});
 			} else {
-				this.review = {};
+				this.review = {
+					rating: 3
+				};
 			}
 		});
 		
@@ -46,6 +48,10 @@ export class EditReviewComponent implements OnInit, OnDestroy {
 		});
 		
 		this.videoGamesService.fetchVideoGames();
+	}
+	
+	updateRating(rating) {
+		this.review.rating = rating;
 	}
 	
 	ngOnDestroy(): void {
