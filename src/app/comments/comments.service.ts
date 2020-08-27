@@ -43,4 +43,15 @@ export class CommentsService {
 			});
 		});
 	}
+	
+	deleteComment(reviewId: string, commentId: string): Promise<any> {
+		return new Promise((resolve, reject) => {
+			this.dataService.delete('/reviews/' + reviewId + '/comment/' + commentId).then(response => {
+				resolve(response);
+			}).catch(err => {
+				this.errorService.handleError(err);
+				reject(err);
+			});
+		});
+	}
 }

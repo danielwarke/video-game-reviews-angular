@@ -3,6 +3,6 @@
         Comments:
     </h2>
     <p *ngIf="!loading && !comments.length">No comments have been written for this review yet.</p>
-
-    <app-new-comment></app-new-comment>
+    <app-comment *ngFor="let comment of comments" [comment]="comment"></app-comment>
+    <app-new-comment [reviewId]="reviewId" (commentCreated)="onCommentCreated($event)"></app-new-comment>
 </div>

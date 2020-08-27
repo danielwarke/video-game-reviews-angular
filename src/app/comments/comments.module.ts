@@ -12,12 +12,15 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import {MatCardModule} from '@angular/material/card';
 import {MatInputModule} from '@angular/material/input';
+import {DeleteCommentDialogComponent} from './comment-list/comment/delete-comment-dialog/delete-comment-dialog.component';
+import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
 	declarations: [
 		CommentListComponent,
 		CommentComponent,
-		NewCommentComponent
+		NewCommentComponent,
+		DeleteCommentDialogComponent
 	],
 	imports: [
 		CommonModule,
@@ -28,7 +31,8 @@ import {MatInputModule} from '@angular/material/input';
 		MatButtonModule,
 		MatIconModule,
 		MatCardModule,
-		MatInputModule
+		MatInputModule,
+		MatDialogModule
 	],
 	providers: [
 		CommentsService

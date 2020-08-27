@@ -1,1 +1,32 @@
-<p>comment works!</p>
+<mat-card style="margin-bottom: 15px;">
+    <mat-card-content *ngIf="!isWriting">
+        <p class="secondary">{{ comment.creator.username }}</p>
+        <h2>{{ comment.body }}</h2>
+    </mat-card-content>
+    <mat-card-actions *ngIf="isCreator">
+        <button mat-raised-button (click)="isWriting = true;">
+            <mat-icon>edit</mat-icon>
+            Edit
+        </button>
+        <button mat-raised-button (click)="isWriting = true;">
+            <mat-icon>delete</mat-icon>
+            Delete
+        </button>
+    </mat-card-actions>
+    <mat-card-content *ngIf="isWriting">
+        <form (ngSubmit)="editComment(editCommentForm)" #editCommentForm="ngForm">
+            <mat-form-field>
+                <mat-label>Your Comment</mat-label>
+                <textarea matInput cdkTextareaAutosize required id="edit-comment" name="edit-comment" ngModel [value]="comment.body"></textarea>
+            </mat-form-field>
+            <button type="submit" mat-raised-button color="primary" [disabled]="editCommentForm.invalid" *ngIf="!loading">
+                <mat-icon>save</mat-icon>
+                Save Changes
+            </button>
+            <button type="button" mat-raised-button (click)="isWriting = false;">
+                Cancel
+            </button>
+            <mat-spinner class="center" *ngIf="loading"></mat-spinner>
+        </form>
+    </mat-card-content>
+</mat-card>
