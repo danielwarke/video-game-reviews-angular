@@ -1,0 +1,34 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <form (ngSubmit)="onReviewSubmit()" #videoGameForm="ngForm" *ngIf="!!review">
+                <h1 class="center">{{ (review._id ? 'Edit' : 'Write New') + ' Review' }}</h1>
+                <mat-form-field>
+                    <mat-label>Video Game</mat-label>
+                    <mat-select [disabled]="!!review._id" [(value)]="review.videoGameId">
+                        <mat-option *ngFor="let videoGame of videoGames" [value]="videoGame._id">
+                            {{ videoGame.title }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Title</mat-label>
+                    <input matInput required id="title" name="title" type="text" [(ngModel)]="review.title">
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Body</mat-label>
+                    <textarea matInput cdkTextareaAutosize required id="body" name="body" [ngModel]="review.body"></textarea>
+                </mat-form-field>
+                <button type="submit" mat-raised-button color="primary" [disabled]="videoGameForm.invalid" *ngIf="!loading" style="margin-right: 15px;">
+                    <mat-icon>save</mat-icon>
+                    Save
+                </button>
+                <button type="button" mat-raised-button *ngIf="!!review._id" (click)="onDeleteButtonClicked()">
+                    <mat-icon>delete</mat-icon>
+                    Delete
+                </button>
+            </form>
+            <mat-spinner class="center" *ngIf="loading"></mat-spinner>
+        </div>
+    </div>
+</div>

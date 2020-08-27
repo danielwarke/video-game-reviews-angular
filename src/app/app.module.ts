@@ -15,6 +15,7 @@ import {CoreModule} from './core/core.module';
 import {ReviewsModule} from './reviews/reviews.module';
 import {AuthModule} from './auth/auth.module';
 import {UserModule} from './user/user.module';
+import {EditReviewModule} from './reviews/edit-review/edit-review.module';
 
 @NgModule({
 	declarations: [
@@ -33,7 +34,8 @@ import {UserModule} from './user/user.module';
 		CoreModule,
 		MatSidenavModule,
 		MatListModule,
-		MatIconModule
+		MatIconModule,
+		EditReviewModule
 	],
 	providers: [],
 	bootstrap: [AppComponent]

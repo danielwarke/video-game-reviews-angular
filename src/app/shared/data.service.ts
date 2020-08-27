@@ -75,4 +75,16 @@ export class DataService {
 			});
 		});
 	}
+	
+	delete(url): Promise<any> {
+		const headers = this.getAuthHttpOptions();
+		
+		return new Promise((resolve, reject) => {
+			this.http.delete<any>(`${this.baseUrl}${url}`, headers).subscribe(response => {
+				resolve(response);
+			}, err => {
+				reject(err);
+			});
+		});
+	}
 }

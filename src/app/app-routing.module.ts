@@ -6,6 +6,7 @@ import {ReviewDetailsComponent} from './reviews/review-details/review-details.co
 import {AboutComponent} from './about/about.component';
 import {AuthComponent} from './auth/auth.component';
 import {UserComponent} from './user/user.component';
+import {EditReviewComponent} from './reviews/edit-review/edit-review.component';
 
 const routes: Routes = [
 	{
@@ -17,7 +18,12 @@ const routes: Routes = [
 		component: ReviewListComponent
 	},
 	{
-		path: 'review-details/:id', component: ReviewDetailsComponent
+		path: 'review-details/:reviewId',
+		component: ReviewDetailsComponent
+	},
+	{
+		path: 'review/:reviewId/edit',
+		component: EditReviewComponent
 	},
 	{
 		path: 'video-games',

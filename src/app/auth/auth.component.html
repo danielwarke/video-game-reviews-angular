@@ -14,12 +14,12 @@
                     <mat-label>Password</mat-label>
                     <input matInput required ngModel id="password" name="password" type="password">
                 </mat-form-field>
-                <button type="submit" mat-raised-button color="primary" [disabled]="authForm.invalid">
+                <button type="submit" mat-raised-button color="primary" [disabled]="authForm.invalid" *ngIf="!loading">
                     <mat-icon>login</mat-icon>
                     {{ isSignup ? 'Sign Up' : 'Login' }}
                 </button>
             </form>
-            <div style="margin-top: 20px;">
+            <div style="margin-top: 20px;" *ngIf="!loading">
                 <button *ngIf="!isSignup" mat-raised-button style="margin-right: 20px;" (click)="forgotPasswordButtonHandler(authForm)">
                     Forgot Password?
                 </button>
@@ -27,6 +27,7 @@
                     {{ isSignup ? 'Already have an Account?' : 'Don\'t have an Account?' }}
                 </button>
             </div>
+            <mat-spinner *ngIf="loading" class="center"></mat-spinner>
         </div>
     </div>
 </div>

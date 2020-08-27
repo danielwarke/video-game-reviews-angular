@@ -15,6 +15,7 @@ import {SharedModule} from '../shared/shared.module';
 import {MatIconModule} from '@angular/material/icon';
 import {MatDialogModule} from '@angular/material/dialog';
 import {ForgotPasswordDialogComponent} from './forgot-password-dialog/forgot-password-dialog.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @NgModule({
 	declarations: [
@@ -32,7 +33,8 @@ import {ForgotPasswordDialogComponent} from './forgot-password-dialog/forgot-pas
 		MatInputModule,
 		MatIconModule,
 		MatDialogModule,
-		FormsModule
+		FormsModule,
+		MatProgressSpinnerModule
 	],
 	providers: [AuthService]
 })

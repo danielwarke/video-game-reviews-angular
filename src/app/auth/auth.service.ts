@@ -2,7 +2,6 @@ import {Injectable} from '@angular/core';
 import {Subject} from 'rxjs';
 
 import {DataService} from '../shared/data.service';
-import {AlertService} from '../shared/alert.service';
 import {ErrorService} from '../shared/error.service';
 
 @Injectable({
@@ -19,7 +18,6 @@ export class AuthService {
 	private isAdmin = false;
 	
 	constructor(private dataService: DataService,
-	            private alertService: AlertService,
 	            private errorService: ErrorService) {
 	}
 	
@@ -27,10 +25,9 @@ export class AuthService {
 		return this.token;
 	}
 	
-	signUp(email: string, username: string, password: string) {
+	signUp(email: string, username: string, password: string): Promise<any> {
 		return new Promise((resolve, reject) => {
 			this.dataService.put('/signup', { email, username, password }).then(response => {
-				this.alertService.show(response.message, 'success');
 				resolve(response);
 			}).catch(err => {
 				this.errorService.handleError(err);
@@ -90,7 +87,6 @@ export class AuthService {
 	forgotPassword(email: string): Promise<any> {
 		return new Promise((resolve, reject) => {
 			this.dataService.post('/forgot-password', { email }).then(response => {
-				this.alertService.show(response.message, 'success');
 				resolve(response);
 			}).catch(err => {
 				this.errorService.handleError(err);

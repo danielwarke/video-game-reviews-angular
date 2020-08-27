@@ -62,7 +62,8 @@ export class AuthComponent implements OnInit {
 	forgotPassword(email: string) {
 		this.loading = true;
 		
-		this.authService.forgotPassword(email).then(() => {
+		this.authService.forgotPassword(email).then(response => {
+			this.alertService.show(response.message, 'success');
 			this.loading = false;
 		}).catch(() => {
 			this.loading = false;
@@ -88,9 +89,10 @@ export class AuthComponent implements OnInit {
 	signUp(email: string, username: string, password: string, successCallback) {
 		this.loading = true;
 		
-		this.authService.signUp(email, username, password).then(() => {
+		this.authService.signUp(email, username, password).then(response => {
 			this.isSignup = false;
 			this.loading = false;
+			this.alertService.show(response.message, 'success');
 			if (typeof successCallback === 'function') {
 				successCallback();
 			}
