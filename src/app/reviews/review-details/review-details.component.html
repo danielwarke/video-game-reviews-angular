@@ -2,22 +2,21 @@
     <div class="row">
         <mat-spinner class="center" *ngIf="loading"></mat-spinner>
         <div class="col-md-10 offset-md-1" *ngIf="review">
+            <h1 class="review-title">{{ review.title }}</h1>
             <div class="row">
-                <div class="col-xs-12 col-sm-8">
-                    <h1 class="review-title">{{ review.title }}</h1>
-                </div>
                 <div class="col-xs-12 col-sm-4" *ngIf="isCreator">
                     <div class="float-right">
                         <button mat-raised-button (click)="onEditReviewClicked()" color="accent">Edit</button>
                     </div>
                 </div>
             </div>
-            <h2>{{ review.videoGame.title }}</h2>
             <app-star-rating [rating]="review.rating" readonly="true"></app-star-rating>
+            <h2>{{ review.videoGame.title }}</h2>
             <h3>Reviewed by {{ review.creator.username }}</h3>
             <img [src]="review.videoGame.imageUrl" [alt]="review.videoGame.title" class="image">
             <p class="review-body">{{ review.body }}</p>
-            <button mat-raised-button (click)="onUserReviewsClicked()" color="accent">More Reviews by {{ review.creator.username }}</button>
+            <button mat-raised-button (click)="onUserReviewsClicked()" color="primary">More Reviews by {{ review.creator.username }}</button>
+            <app-comment-list [reviewId]="review._id"></app-comment-list>
         </div>
     </div>
 </div>

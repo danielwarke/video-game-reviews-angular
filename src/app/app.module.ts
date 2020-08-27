@@ -16,6 +16,7 @@ import {ReviewsModule} from './reviews/reviews.module';
 import {AuthModule} from './auth/auth.module';
 import {UserModule} from './user/user.module';
 import {EditReviewModule} from './reviews/edit-review/edit-review.module';
+import {CommentsModule} from './comments/comments.module';
 
 @NgModule({
 	declarations: [
@@ -35,7 +36,8 @@ import {EditReviewModule} from './reviews/edit-review/edit-review.module';
 		MatSidenavModule,
 		MatListModule,
 		MatIconModule,
-		EditReviewModule
+		EditReviewModule,
+		CommentsModule
 	],
 	providers: [],
 	bootstrap: [AppComponent]

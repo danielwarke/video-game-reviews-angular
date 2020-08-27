@@ -12,6 +12,7 @@ import {ReviewsService} from './reviews.service';
 import {ReviewDetailsComponent} from './review-details/review-details.component';
 import {RouterModule} from '@angular/router';
 import {MatButtonModule} from '@angular/material/button';
+import {CommentsModule} from '../comments/comments.module';
 
 @NgModule({
 	declarations: [
@@ -27,7 +28,8 @@ import {MatButtonModule} from '@angular/material/button';
 		HttpClientModule,
 		BrowserModule,
 		RouterModule,
-		MatButtonModule
+		MatButtonModule,
+		CommentsModule
 	],
 	providers: [ReviewsService]
 })

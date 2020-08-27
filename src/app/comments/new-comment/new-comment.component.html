@@ -1,0 +1,20 @@
+<div style="margin-top: 15px;">
+    <mat-card *ngIf="isWriting">
+        <form (ngSubmit)="createComment(newCommentForm)" #newCommentForm="ngForm">
+            <mat-form-field>
+                <mat-label>Your Comment</mat-label>
+                <textarea matInput cdkTextareaAutosize required id="comment" name="comment" ngModel></textarea>
+            </mat-form-field>
+            <button type="submit" mat-raised-button color="primary" [disabled]="newCommentForm.invalid" *ngIf="!loading">
+                <mat-icon>chat</mat-icon>
+                Post
+            </button>
+            <mat-spinner class="center" *ngIf="loading"></mat-spinner>
+        </form>
+    </mat-card>
+    <div *ngIf="!isWriting" class="center">
+        <button type="button" mat-raised-button color="accent" (click)="writeCommentButtonHandler()">
+            {{ isAuth ? 'Write a Comment' : 'Login to Write a Comment' }}
+        </button>
+    </div>
+</div>

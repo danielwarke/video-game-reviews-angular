@@ -1,0 +1,8 @@
+<div style="margin-top: 30px;">
+    <h2>
+        Comments:
+    </h2>
+    <p *ngIf="!loading && !comments.length">No comments have been written for this review yet.</p>
+
+    <app-new-comment></app-new-comment>
+</div>
