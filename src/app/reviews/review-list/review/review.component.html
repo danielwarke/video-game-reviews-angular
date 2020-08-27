@@ -1,6 +1,7 @@
 <mat-card class="review">
     <mat-card-title>{{ review.title }}</mat-card-title>
     <mat-card-subtitle>By: {{ review.creator.username }}</mat-card-subtitle>
+    <app-star-rating [rating]="review.rating" readonly="true"></app-star-rating>
     <mat-card-subtitle>{{ review.videoGame.title }}</mat-card-subtitle>
     <img mat-card-image [src]="review.videoGame.imageUrl" [alt]="review.videoGame.title">
     <mat-card-content>{{ review.bodyPreview }}</mat-card-content>

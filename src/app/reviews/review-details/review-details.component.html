@@ -13,6 +13,7 @@
                 </div>
             </div>
             <h2>{{ review.videoGame.title }}</h2>
+            <app-star-rating [rating]="review.rating" readonly="true"></app-star-rating>
             <h3>Reviewed by {{ review.creator.username }}</h3>
             <img [src]="review.videoGame.imageUrl" [alt]="review.videoGame.title" class="image">
             <p class="review-body">{{ review.body }}</p>

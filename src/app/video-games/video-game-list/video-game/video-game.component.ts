@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
 
 @Component({
 	selector: 'app-video-game',
@@ -8,10 +9,14 @@ import {Component, Input, OnInit} from '@angular/core';
 export class VideoGameComponent implements OnInit {
 	@Input() videoGame: any;
 
-	constructor() {
+	constructor(private router: Router) {
 	}
 
 	ngOnInit(): void {
+	}
+	
+	seeVideoGameReviews() {
+		this.router.navigate(['/reviews/'], { queryParams: { videoGame: this.videoGame._id } });
 	}
 
 }

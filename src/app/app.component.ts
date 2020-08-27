@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AuthService} from './auth/auth.service';
 
 @Component({
@@ -6,16 +6,20 @@ import {AuthService} from './auth/auth.service';
 	templateUrl: './app.component.html',
 	styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 	sidenavOpen = false;
-	menuLinks = this.getMenuLinks();
+	menuLinks = [];
 	
 	constructor(private authService: AuthService) {
 	}
 	
-	getMenuLinks() {
-		const token = this.authService.getToken();
-		
+	ngOnInit(): void {
+		this.authService.hasToken.subscribe(token => {
+			this.menuLinks = this.getMenuLinks(!!token);
+		});
+	}
+	
+	getMenuLinks(hasToken) {
 		const menuLinks = [
 			{
 				sectionBreak: false,
@@ -31,7 +35,7 @@ export class AppComponent {
 			}
 		];
 		
-		if (!!token) {
+		if (hasToken) {
 			menuLinks.push({
 				sectionBreak: false,
 				path: '/review/create',

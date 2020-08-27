@@ -11,9 +11,14 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {SharedModule} from '../../shared/shared.module';
+import {DeleteReviewDialogComponent} from './delete-review-dialog/delete-review-dialog.component';
+import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
-	declarations: [EditReviewComponent],
+	declarations: [
+		EditReviewComponent,
+		DeleteReviewDialogComponent
+	],
 	imports: [
 		CommonModule,
 		MatProgressSpinnerModule,
@@ -24,7 +29,8 @@ import {SharedModule} from '../../shared/shared.module';
 		MatFormFieldModule,
 		MatSelectModule,
 		BrowserAnimationsModule,
-		SharedModule
+		SharedModule,
+		MatDialogModule
 	]
 })
 export class EditReviewModule {

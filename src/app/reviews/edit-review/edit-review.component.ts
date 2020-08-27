@@ -5,6 +5,8 @@ import {Subscription} from 'rxjs';
 import {ReviewsService} from '../reviews.service';
 import {VideoGamesService} from '../../video-games/video-games.service';
 import {AlertService} from '../../shared/alert.service';
+import {MatDialog} from '@angular/material/dialog';
+import {DeleteReviewDialogComponent} from './delete-review-dialog/delete-review-dialog.component';
 
 @Component({
 	selector: 'app-edit-review',
@@ -21,7 +23,8 @@ export class EditReviewComponent implements OnInit, OnDestroy {
 	            private videoGamesService: VideoGamesService,
 	            private route: ActivatedRoute,
 	            private router: Router,
-	            private alertService: AlertService) {
+	            private alertService: AlertService,
+	            public dialog: MatDialog) {
 	}
 	
 	ngOnInit(): void {
@@ -38,7 +41,7 @@ export class EditReviewComponent implements OnInit, OnDestroy {
 				});
 			} else {
 				this.review = {
-					rating: 3
+					rating: 0
 				};
 			}
 		});
@@ -98,7 +101,7 @@ export class EditReviewComponent implements OnInit, OnDestroy {
 		}
 	}
 	
-	onDeleteButtonClicked(): void {
+	deleteReview(): void {
 		this.loading = true;
 		
 		this.reviewsService.deleteReview(this.review._id).then(() => {
@@ -111,6 +114,16 @@ export class EditReviewComponent implements OnInit, OnDestroy {
 			}, 1000);
 		}).catch(err => {
 			this.loading = false;
+		});
+	}
+	
+	onDeleteButtonClicked(): void {
+		const dialogRef = this.dialog.open(DeleteReviewDialogComponent);
+		
+		dialogRef.afterClosed().subscribe(result => {
+			if (result) {
+				this.deleteReview();
+			}
 		});
 	}
 }
