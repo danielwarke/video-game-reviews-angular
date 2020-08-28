@@ -33,9 +33,9 @@ export class CommentsService {
 		});
 	}
 	
-	updateComment(reviewId: string, body: string): Promise<any> {
+	updateComment(reviewId: string, commentId: string, body: string): Promise<any> {
 		return new Promise((resolve, reject) => {
-			this.dataService.put('/reviews/' + reviewId + '/comment', { body }, true).then(response => {
+			this.dataService.put('/reviews/' + reviewId + '/comment/' + commentId, { body }, true).then(response => {
 				resolve(response);
 			}).catch(err => {
 				this.errorService.handleError(err);

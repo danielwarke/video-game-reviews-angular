@@ -5,7 +5,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 	providedIn: 'root'
 })
 export class DataService {
-	production = false;
+	production = true;
 	baseUrl = this.production ? 'https://video-game-reviews-backend.herokuapp.com' : 'http://localhost:8080';
 
 	constructor(private http: HttpClient) {

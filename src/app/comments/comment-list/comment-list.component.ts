@@ -35,10 +35,11 @@ export class CommentListComponent implements OnInit {
 		});
 	}
 	
-	onCommentEdited(commentId, newBody) {
+	onCommentEdited(updatedComment) {
+		const commentId = updatedComment._id;
+		const newBody = updatedComment.body;
+		
 		const commentIndex = this.comments.findIndex(comment => comment._id === commentId);
 		this.comments[commentIndex].body = newBody;
 	}
-	
-	
 }

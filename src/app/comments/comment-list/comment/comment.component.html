@@ -3,12 +3,12 @@
         <p class="secondary">{{ comment.creator.username }}</p>
         <h2>{{ comment.body }}</h2>
     </mat-card-content>
-    <mat-card-actions *ngIf="isCreator">
-        <button mat-raised-button (click)="isWriting = true;">
+    <mat-card-actions *ngIf="isCreator && !isWriting">
+        <button mat-button (click)="isWriting = true;">
             <mat-icon>edit</mat-icon>
             Edit
         </button>
-        <button mat-raised-button (click)="isWriting = true;">
+        <button mat-button (click)="onDeleteButtonClicked()">
             <mat-icon>delete</mat-icon>
             Delete
         </button>
@@ -17,9 +17,9 @@
         <form (ngSubmit)="editComment(editCommentForm)" #editCommentForm="ngForm">
             <mat-form-field>
                 <mat-label>Your Comment</mat-label>
-                <textarea matInput cdkTextareaAutosize required id="edit-comment" name="edit-comment" ngModel [value]="comment.body"></textarea>
+                <textarea matInput cdkTextareaAutosize required id="newBody" name="newBody" [(ngModel)]="comment.body"></textarea>
             </mat-form-field>
-            <button type="submit" mat-raised-button color="primary" [disabled]="editCommentForm.invalid" *ngIf="!loading">
+            <button type="submit" mat-raised-button color="primary" [disabled]="editCommentForm.invalid" *ngIf="!loading" style="margin-right: 15px;">
                 <mat-icon>save</mat-icon>
                 Save Changes
             </button>
